@@ -8,13 +8,12 @@ var textarea = document.querySelector('textarea')
 // Then apply them to elements on the page
 // YOUR CODE HERE
 
-cookieStore.get('nameSpan')
+cookieStore.get('username')
 .then(function(cookieObj) {
   if (cookieObj) {
     nameSpan.textContent = cookieObj.value
     }
-  }
-})
+  })
 
 
 var noteContent = localStorage.getItem ('notes')
@@ -27,7 +26,7 @@ formEl.onsubmit = function(e) {
   // prevents form submission
   e.preventDefault()
 
-  document.cookie = 'username=' + nameSpan.textContent = ';'
+  document.cookie = 'username=' + nameSpan.textContent + ';'
   // save name element's content to cookies
   // save textarea's content to localstorage
   // YOUR CODE HERE
