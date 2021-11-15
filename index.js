@@ -8,12 +8,35 @@ var textarea = document.querySelector('textarea')
 // Then apply them to elements on the page
 // YOUR CODE HERE
 
+nameSpan.onblur = function() {
+  document.cookie = 'name' + nameSpan.textContent
+}
+
+var noteContent = localStorage.getItem ('notes')
+
+if (noteContent) {
+  textarea.textContent = noteContent
+}
+
 formEl.onsubmit = function(e) {
   // prevents form submission
   e.preventDefault()
   // save name element's content to cookies
   // save textarea's content to localstorage
   // YOUR CODE HERE
+
+  cookieStore.get('nameSpan')
+    .then(function(cookieObj) {
+      if (cookieObj) {
+        nameSpan.textContent = cookieObj.value
+        }
+      }
+    })
+
+         // save textarea's content to localstorage
+
+var textAreaContent = textarea.value
+localStorage.setItem('notes', textAreaContent)
 
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
